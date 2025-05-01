@@ -6,11 +6,6 @@ I'm working on sending a patch to lkml. Until then, this works for me.
 $ make
 $ sudo insmod casper-wmi.ko
 ```
-LED Control
-echo "312ff0000" > /sys/class/leds/casper\:\:kbd_backlight/led_contr
+echo "312ff0000" > /sys/class/leds/casper\:\:kbd_backlight/led_control
 
-Power Control
-echo 1 > /sys/class/hwmon/hwmon8/pwm1_mode
-
-Fan Monitor
-cat /sys/class/hwmon/hwmon8/fan1_input
+echo 1 > /sys/class/hwmon/hwmon/pwm1_mode
