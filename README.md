@@ -1,6 +1,6 @@
 # Casper Linux WMI Driver
 
-A Linux kernel module to control keyboard backlight and hardware monitoring on Casper Excalibur laptops, such as G650, G670, G750, and G900 series.
+A Linux kernel module to control keyboard backlight and hardware monitoring on Casper Excalibur laptops.
 
 ## Features
 
@@ -37,20 +37,6 @@ A Linux kernel module to control keyboard backlight and hardware monitoring on C
 - Fan speeds and power plans are accessible via the hwmon subsystem (e.g., `/sys/class/hwmon/hwmon*/`).
 - Supported commands (hex values) for LED zones and hardware info are defined in `casper-wmi.c`.
 
-## Supported Models
-
-- Casper Excalibur G650
-- Casper Excalibur G670
-- Casper Excalibur G750
-- Casper Excalibur G900
-
-If your laptop is not recognized, or you have an Intel CPU older than 10th gen, please contact the driver maintainer.
-
-## Development
-
-- Author: Mustafa Ekşi <mustafa.eskieksi@gmail.com>
-- License: GPL
-- The driver is intended for upstream inclusion in Linux (patch in progress).
 
 ## Troubleshooting
 
