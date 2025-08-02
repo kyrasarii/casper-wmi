@@ -23,7 +23,7 @@ A Linux kernel module to control keyboard backlight and hardware monitoring on C
 
 3. **Test keyboard backlight control:**
    ```sh
-   echo "312ff0000" | sudo tee /sys/class/leds/casper::kbd_backlight/led_control
+   echo "372ffffff" | sudo tee /sys/class/leds/casper::kbd_backlight/led_control
    ```
 
 4. **(Optional) Install compressed module:**
