@@ -26,10 +26,43 @@ A Linux kernel module to control keyboard backlight and hardware monitoring on C
    echo "372ffffff" | sudo tee /sys/class/leds/casper::kbd_backlight/led_control
    ```
 
-4. **(Optional) Install compressed module:**
+**(Optional) Install compressed module:**
+   Install the module in the correct location with proper compression. 
    ```sh
-   sudo zstd casper-wmi.ko -o /lib/modules/$(uname -r)/kernel/drivers/platform/x86/casper-wmi.ko.zst
+sudo zstd casper-wmi.ko -o /lib/modules/$(uname -r)/kernel/drivers/platform/x86/casper-wmi.ko.zst
    ```
+   Update module dependencies. (this is crucial after manually placing a module)
+```sh
+sudo depmod -a
+```
+   Set up automatic loading using the modules-load.d method.
+```sh
+sudo nano /etc/modules-load.d/casper-wmi.conf
+```
+   Add this single line:
+```sh
+casper-wmi
+```
+   Test that the module can be loaded manually (optional, to verify it works).
+```sh
+sudo modprobe casper-wmi
+```
+   Check if it loaded:
+```sh
+lsmod | grep casper
+```
+   If it loaded successfully, unload it for testing the boot process.
+```sh
+sudo modprobe -r casper-wmi
+```
+   Reboot and verify.
+```sh
+sudo reboot
+```
+   After reboot, check:
+```sh
+lsmod | grep casper
+```
 
 ## Usage
 
